@@ -52,7 +52,11 @@
 
     <section id="home-content" class="container">
       <div class="mt-5">
-        <h3>Home</h3>
+        <div class="align-items-center d-flex justify-content-between">
+          <h3>Product</h3>
+
+          <a href="/add-product.html" class="btn btn-primary"> Tambah Data</a>
+        </div>
 
         <table class="table table-hover mt-4">
           <thead class="table-dark">
@@ -61,26 +65,27 @@
               <th scope="col">First</th>
               <th scope="col">Last</th>
               <th scope="col">Handle</th>
+              <th scope="col ">Action</th>
             </tr>
           </thead>
 
           <tbody>
             <tr>
               <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
+              <td>Lorem ipsum dolor sit amet.</td>
+              <td>Lorem .</td>
               <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
+              <td class="d-flex gap-2">
+                <a href="/add-product.html" class="btn btn-sm btn-warning">
+                  Detail
+                </a>
+                <a href="/add-product.html" class="btn btn-sm btn-primary">
+                  Edit
+                </a>
+                <a href="/add-product.html" class="btn btn-sm btn-danger">
+                  Delete
+                </a>
+              </td>
             </tr>
           </tbody>
         </table>
