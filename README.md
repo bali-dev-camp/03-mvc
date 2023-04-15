@@ -28,6 +28,10 @@ npx prisma generate
 npx prisma migrate dev
 ```
 
+```sh
+npm run seed
+```
+
 #### Refrence
 
 1. Template engine [Ejs](https://ejs.co/)
