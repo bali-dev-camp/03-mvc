@@ -27,3 +27,9 @@ npx prisma generate
 ```sh
 npx prisma migrate dev
 ```
+
+#### Refrence
+
+1. Template engine [Ejs](https://ejs.co/)
+2. CSS Framework [Bootstrap 5](https://getbootstrap.com/)
+3. Icon Framework [Bootstrap Icon](https://icons.getbootstrap.com/)
