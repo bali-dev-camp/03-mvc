@@ -16,16 +16,16 @@
       <div class="d-flex">
         <div>
           <img class="border mb-3" width="350"
-            src="<%- shoe.img %>"
+            src="<%= shoe.img %>"
             alt="shoe" />
         </div>
         <div class="ms-5">
-          <h5><%- shoe.merk %></h5>
-          <h2><%- shoe.name %></h2>
-          <p class="h6 my-4">Availability: <%- shoe.available %></p>
-          <p class="h5">Rp <%- shoe.price %></p>
-          <p class="my-4">Hurry up! Only <%- shoe.qty %> product left in stock!</p>
-          <p><%- shoe.desc %></p>
+          <h5><%= shoe.merk %></h5>
+          <h2><%= shoe.name %></h2>
+          <p class="h6 my-4">Availability: <%= shoe.available %></p>
+          <p class="h5">Rp <%= shoe.price %></p>
+          <p class="my-4">Hurry up! Only <%= shoe.qty %> product left in stock!</p>
+          <p><%= shoe.desc %></p>
         </div>
       </div>
     </div>
