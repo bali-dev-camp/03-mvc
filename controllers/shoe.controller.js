@@ -57,7 +57,7 @@ class ShoeController {
         qty: Number(req.body.qty),
         available: req.body.available === "true" ? true : false,
         price: Number(req.body.price),
-        img: req.file.filename,
+        img: req.file ? req.file.filename : undefined,
         desc: req.body.description,
       },
     });

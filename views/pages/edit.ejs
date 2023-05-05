@@ -48,7 +48,7 @@
           </div>
         </div>
 
-        <div class="mb-3 row justify-content-start">
+        <div class="mb-3 row justify-content-start align-items-end">
           <div class="col-12 col-sm-6">
             <label for="price" class="form-label">Price</label>
 
@@ -64,9 +64,10 @@
           </div>
 
           <div class="col-12 col-sm-6">
-            <label for="img" class="form-label">Image File</label>
+            <img id="uploadPreview" src="/images/<%= shoe.img %>" class="my-3" style="width: 100px; height: 100px;" />
 
-            <input name="img" type="file" class="form-control" id="img" required/>
+            <label for="img" class="form-label d-block">Image File</label>
+            <input name="img" type="file" class="form-control" id="img"/>
           </div>
         </div>
 
@@ -82,6 +83,8 @@
       </form>
     </div>
   </section>
+
+  <script src="/scripts/preview-image-script.js" type="text/javascript"/>
 
   <%- include("../setups/script") %>
 </body>
