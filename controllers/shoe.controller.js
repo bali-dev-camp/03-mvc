@@ -3,21 +3,21 @@ const prisma = new PrismaClient();
 
 class ShoeController {
   static async listPage(req, res) {
-    const result = await prisma.shoe.findMany()
-    res.render("pages/list", {shoes: result})
+    const result = await prisma.shoe.findMany();
+    res.render("pages/list", { shoes: result });
   }
 
   static async detailPage(req, res) {
     const result = await prisma.shoe.findUnique({
       where: {
-        id: Number(req.params.id)
-      }
-    })
-    res.render("pages/detail", {shoe: result})
+        id: Number(req.params.id),
+      },
+    });
+    res.render("pages/detail", { shoe: result });
   }
 
   static async createPage(req, res) {
-    res.render("pages/add")
+    res.render("pages/add");
   }
 
   static async store(req, res) {
@@ -28,9 +28,9 @@ class ShoeController {
         qty: Number(req.body.qty),
         available: req.body.available === "true" ? true : false,
         price: Number(req.body.price),
-        img: req.body.img,
+        img: req.file.filename,
         desc: req.body.description,
-      }
+      },
     });
 
     res.redirect("/shoe");
@@ -39,9 +39,9 @@ class ShoeController {
   static async editPage(req, res) {
     const result = await prisma.shoe.findUnique({
       where: {
-        id: Number(req.params.id)
-      }
-    })
+        id: Number(req.params.id),
+      },
+    });
 
     res.render("pages/edit", { shoe: result });
   }
@@ -57,9 +57,9 @@ class ShoeController {
         qty: Number(req.body.qty),
         available: req.body.available === "true" ? true : false,
         price: Number(req.body.price),
-        img: req.body.img,
+        img: req.file.filename,
         desc: req.body.description,
-      }
+      },
     });
 
     res.redirect("/shoe");
@@ -69,7 +69,7 @@ class ShoeController {
     await prisma.shoe.delete({
       where: {
         id: Number(req.params.id),
-      }
+      },
     });
 
     res.redirect("/shoe");
