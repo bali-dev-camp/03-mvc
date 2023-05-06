@@ -28,7 +28,7 @@ class ShoeController {
         qty: Number(req.body.qty),
         available: req.body.available === "true" ? true : false,
         price: Number(req.body.price),
-        img: req.body.img,
+        img: req.file.filename,
         desc: req.body.description,
       }
     });
@@ -57,7 +57,7 @@ class ShoeController {
         qty: Number(req.body.qty),
         available: req.body.available === "true" ? true : false,
         price: Number(req.body.price),
-        img: req.body.img,
+        img: req.file.filename,
         desc: req.body.description,
       }
     });

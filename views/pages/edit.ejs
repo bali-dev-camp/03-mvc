@@ -16,7 +16,12 @@
         <a href="./list.html" class="btn btn-outline-danger">Cancel</a>
       </div>
 
-      <form class="mt-4" action="/shoe/<%= shoe.id %>/edit" method="post">
+      <form 
+        class="mt-4" 
+        action="/shoe/<%= shoe.id %>/edit" 
+        method="post" 
+        enctype="multipart/form-data"
+      >
         <div class="mb-3 row justify-content-start">
           <div class="col-12 col-sm-6">
             <label for="name" class="form-label">Name</label>
@@ -48,7 +53,7 @@
           </div>
         </div>
 
-        <div class="mb-3 row justify-content-start">
+        <div class="mb-3 row justify-content-start align-items-end">
           <div class="col-12 col-sm-6">
             <label for="price" class="form-label">Price</label>
 
@@ -64,17 +69,10 @@
           </div>
 
           <div class="col-12 col-sm-6">
-            <label for="img" class="form-label">Image URL</label>
+            <img id="uploadPreview" src="/public/uploads/<%= shoe.img %>" class="my-3" style="width: 100px; height: 100px;" />
 
-            <input
-              name="img"
-              value="<%= shoe.img %>"
-              type="text"
-              class="form-control"
-              id="img"
-              placeholder="Ex. https://google.com/image.png"
-              required
-            />
+            <label for="img" class="form-label d-block">Image File</label>
+            <input name="img" type="file" class="form-control" id="img"/>
           </div>
         </div>
 
@@ -90,6 +88,8 @@
       </form>
     </div>
   </section>
+
+  <script src="/public/scripts/preview-image-script.js" />
 
   <%- include("../setups/script") %>
 </body>

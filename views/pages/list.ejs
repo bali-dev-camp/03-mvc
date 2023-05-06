@@ -13,6 +13,10 @@
       <h3>Shoe List</h3>
       <a href="/shoe/create" class="btn btn-outline-primary"> Add </a>
     </div>
+
+    <% if (shoes.length < 1) { %>
+      <p class="h3 text-center">No Data</p>
+    <% } else { %>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -49,6 +53,8 @@
         <% }) %>
       </tbody>
     </table>
+    <% } %>
+
   </section>
 
   <%- include("../setups/script") %>
