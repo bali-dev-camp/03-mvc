@@ -31,12 +31,22 @@ const data = [
   },
 ];
 
+const user = {
+  username: "admin",
+  password: "123456789",
+};
+
 async function main() {
   data.forEach(async (shoe) => {
     await prisma.shoe.create({
       data: shoe,
     });
   });
+
+  await prisma.user.create({
+    data: user,
+  });
+
   console.log("Seed data success");
 }
 
