@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 class ShoeController {
   static async listPage(req, res) {
     const result = await prisma.shoe.findMany();
-    res.render("pages/list", { shoes: result });
+    res.render("pages/shoe/list", { shoes: result });
   }
 
   static async detailPage(req, res) {
@@ -13,11 +13,11 @@ class ShoeController {
         id: Number(req.params.id),
       },
     });
-    res.render("pages/detail", { shoe: result });
+    res.render("pages/shoe/detail", { shoe: result });
   }
 
   static async createPage(req, res) {
-    res.render("pages/add");
+    res.render("pages/shoe/add");
   }
 
   static async store(req, res) {
@@ -43,7 +43,7 @@ class ShoeController {
       },
     });
 
-    res.render("pages/edit", { shoe: result });
+    res.render("pages/shoe/edit", { shoe: result });
   }
 
   static async update(req, res) {
@@ -73,10 +73,6 @@ class ShoeController {
     });
 
     res.redirect("/shoe");
-  }
-
-  static async aboutPage(req, res) {
-    res.render("pages/about");
   }
 }
 

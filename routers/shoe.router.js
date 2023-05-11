@@ -15,8 +15,6 @@ router.get("/shoe/:id/edit", ShoeController.editPage);
 router.post("/shoe/:id/edit", upload.single("img"), ShoeController.update);
 router.post("/shoe/:id/delete", ShoeController.delete);
 
-router.get("/about", ShoeController.aboutPage);
-
 router.get("/api/shoe", ShoeApiController.getShoe);
 router.get("/api/shoe/:id", ShoeApiController.getDetailShoe);
 router.post("/api/shoe", ShoeApiController.addShoe);
