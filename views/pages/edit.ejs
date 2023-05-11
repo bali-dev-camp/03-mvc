@@ -69,7 +69,7 @@
           </div>
 
           <div class="col-12 col-sm-6">
-            <img id="uploadPreview" src="/public/uploads/<%= shoe.img %>" class="my-3" style="width: 100px; height: 100px;" />
+            <img id="uploadPreview" src="/uploads/<%= shoe.img %>" class="my-3" style="width: 100px; height: 100px;" />
 
             <label for="img" class="form-label d-block">Image File</label>
             <input name="img" type="file" class="form-control" id="img"/>
@@ -89,7 +89,7 @@
     </div>
   </section>
 
-  <script src="/public/scripts/preview-image-script.js" />
+  <script src="/scripts/previewImageScript.js" />
 
   <%- include("../setups/script") %>
 </body>
