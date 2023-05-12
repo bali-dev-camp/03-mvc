@@ -1,5 +1,6 @@
-const { generateHash } = require("../lib/bcrypt");
 const { PrismaClient } = require("@prisma/client");
+const {} = require("../lib/bcrypt");
+
 const prisma = new PrismaClient();
 
 const data = [
@@ -34,7 +35,7 @@ const data = [
 
 const user = {
   username: "admin",
-  password: generateHash("123456789"),
+  password: "123456789",
 };
 
 async function main() {

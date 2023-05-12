@@ -2,6 +2,8 @@ const passport = require("../lib/passport");
 
 class AuthController {
   static async loginPage(req, res) {
+    // Ketika user sudah login, tidak bisa kembali ke halaman login
+    if (req.isAuthenticated()) res.redirect("/");
     res.render("pages/login");
   }
 
