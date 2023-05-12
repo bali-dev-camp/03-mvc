@@ -19,3 +19,11 @@ model Shoe {
   price     Int
   img       String
 }
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+  password  String
+}
