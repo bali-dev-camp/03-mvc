@@ -11,7 +11,23 @@
         style="height: 100vh"
       >
         <form class="col-4" action="/login" method="post">
-          <p class="h4 mb-5">Login to shoe dashboard</p>
+          <p class="h4 mb-5">Login to Shoe dashboard</p>
+
+          <% if (messages.error) { %>
+          <div
+            class="alert alert-danger alert-dismissible fade show"
+            role="alert"
+          >
+            <%= messages.error %>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+          <% } %>
+
           <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input
@@ -34,5 +50,7 @@
         </form>
       </div>
     </section>
+
+    <%- include("../setups/script") %>
   </body>
 </html>

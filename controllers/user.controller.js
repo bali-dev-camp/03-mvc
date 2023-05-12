@@ -13,7 +13,7 @@ class UserController {
   }
 
   static async store(req, res) {
-    const encryptedPassword = generateHash(req.body.password);
+    const encryptedPassword = await generateHash(req.body.password);
 
     await prisma.user.create({
       data: {
@@ -36,7 +36,7 @@ class UserController {
 
   static async update(req, res) {
     const encryptedPassword = req.body.password
-      ? generateHash(req.body.password)
+      ? await generateHash(req.body.password)
       : undefined;
 
     await prisma.user.update({

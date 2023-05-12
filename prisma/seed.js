@@ -1,5 +1,5 @@
 const { PrismaClient } = require("@prisma/client");
-const {} = require("../lib/bcrypt");
+const { generateHash } = require("../lib/bcrypt");
 
 const prisma = new PrismaClient();
 
@@ -33,11 +33,6 @@ const data = [
   },
 ];
 
-const user = {
-  username: "admin",
-  password: "123456789",
-};
-
 async function main() {
   data.forEach(async (shoe) => {
     await prisma.shoe.create({
@@ -46,7 +41,10 @@ async function main() {
   });
 
   await prisma.user.create({
-    data: user,
+    data: {
+      username: "admin",
+      password: await generateHash("123456789"),
+    },
   });
 
   console.log("Seed data success");
