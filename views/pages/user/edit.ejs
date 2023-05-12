@@ -1,1 +1,54 @@
-<p>Ini halaman edit user</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../../setups/head") %>
+  </head>
+
+  <body>
+    <%- include("../../components/navbar") %>
+
+    <section id="home-content" class="container">
+      <div class="mt-5">
+        <div class="align-items-center d-flex justify-content-between">
+          <h3>Edit User Data</h3>
+
+          <a href="/user" class="btn btn-outline-danger">Cancel</a>
+        </div>
+
+        <form class="mt-4" action="/user/<%= user.id %>/edit" method="post">
+          <div class="mb-3 row justify-content-start">
+            <div class="col-12 col-sm-6">
+              <label for="username" class="form-label">Username</label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                placeholder="myedgename"
+                name="username"
+                value="<%= user.username %>"
+              />
+            </div>
+
+            <div class="col-12 col-sm-6">
+              <label for="password" class="form-label">Password</label>
+
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-outline-primary mt-4">
+            Update
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <%- include("../../setups/script") %>
+  </body>
+</html>
