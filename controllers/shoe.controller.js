@@ -17,7 +17,7 @@ class ShoeController {
   }
 
   static async createPage(req, res) {
-    res.render("pages/shoe/add");
+    res.render("pages/shoe/create");
   }
 
   static async store(req, res) {
@@ -32,6 +32,7 @@ class ShoeController {
         desc: req.body.description,
       },
     });
+    1;
 
     res.redirect("/shoe");
   }

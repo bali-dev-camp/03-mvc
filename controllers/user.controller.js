@@ -9,7 +9,7 @@ class UserController {
   }
 
   static async createPage(req, res) {
-    res.render("pages/user/add");
+    res.render("pages/user/create");
   }
 
   static async store(req, res) {
