@@ -71,6 +71,20 @@
           </div>
 
           <div class="mb-3">
+            <label for="description" class="form-label"> Category </label>
+            <select name="category" class="form-select" aria-label="Default select example" required>
+              <option value="">Open this select category</option>
+              <% categories.map((category) => { %>
+                <% if (category.id === shoe.categoryId) { %>
+                  <option selected value="<%= category.id %>"><%= category.name %></option>
+                <% } else { %>
+                  <option value="<%= category.id %>"><%= category.name %></option>
+                <% } %>
+              <% }) %>
+            </select>
+          </div>
+
+          <div class="mb-3">
             <label for="description" class="form-label"> Description </label>
 
             <textarea name="description" class="form-control" id="description" rows="3" required><%= shoe.desc %></textarea>

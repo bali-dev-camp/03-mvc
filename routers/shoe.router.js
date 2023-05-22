@@ -9,6 +9,7 @@ const router = Router();
 
 router.get("/shoe", ShoeController.listPage);
 router.get("/shoe/create", ShoeController.createPage);
+router.post("/shoe/filter", ShoeController.filter);
 router.post("/shoe", upload.single("img"), ShoeController.store);
 router.get("/shoe/:id", ShoeController.detailPage);
 router.get("/shoe/:id/edit", ShoeController.editPage);
