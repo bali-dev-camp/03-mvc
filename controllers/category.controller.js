@@ -12,7 +12,6 @@ class CategoryController {
   }
 
   static async store(req, res) {
-    console.log(req.body);
     await prisma.category.create({
       data: {
         name: req.body.name,
