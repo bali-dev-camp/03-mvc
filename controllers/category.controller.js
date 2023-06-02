@@ -12,13 +12,17 @@ class CategoryController {
   }
 
   static async store(req, res) {
-    await prisma.category.create({
-      data: {
-        name: req.body.name,
-      },
-    });
-
-    res.redirect("/category");
+    try {
+      await prisma.category.create({
+        data: {
+          name: req.body.name,
+        },
+      });
+      res.redirect("/category");
+    } catch (err) {
+      req.flash("error", err.message);
+      res.redirect("/category/create");
+    }
   }
 
   static async editPage(req, res) {
@@ -32,16 +36,21 @@ class CategoryController {
   }
 
   static async update(req, res) {
-    await prisma.category.update({
-      where: {
-        id: Number(req.params.id),
-      },
-      data: {
-        name: req.body.name,
-      },
-    });
+    try {
+      await prisma.category.update({
+        where: {
+          id: Number(req.params.id),
+        },
+        data: {
+          name: req.body.name,
+        },
+      });
 
-    res.redirect("/category");
+      res.redirect("/category");
+    } catch (err) {
+      req.flash("error", err.message);
+      res.redirect(`/category/${req.params.id}/edit`);
+    }
   }
 
   static async delete(req, res) {

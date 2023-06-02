@@ -17,12 +17,22 @@ class ShoeController {
   }
 
   static async detailPage(req, res) {
-    const result = await prisma.shoe.findUnique({
-      where: {
-        id: Number(req.params.id),
-      },
-    });
-    res.render("pages/shoe/detail", { shoe: result });
+    try {
+      const result = await prisma.shoe.findUnique({
+        where: {
+          id: Number(req.params.id),
+        },
+      });
+
+      if (result) {
+        res.render("pages/shoe/detail", { shoe: result });
+      } else {
+        throw `Not found shoe data with ID ${req.params.id}`;
+      }
+    } catch (err) {
+      req.flash("error", err.message || err);
+      res.redirect("/shoe");
+    }
   }
 
   static async createPage(req, res) {

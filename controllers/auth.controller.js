@@ -11,7 +11,7 @@ class AuthController {
     passport.authenticate("local", {
       successRedirect: "/",
       failureRedirect: "/login",
-      failureFlash: true, // Untuk mengaktifkan express flash
+      failureFlash: "Wrong password or username", // Untuk mengirimakan `message.error` ke ejs fia express.flash
     })(req, res, next);
   }
 
