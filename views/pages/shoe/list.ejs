@@ -24,6 +24,7 @@
           <th scope="col">Name</th>
           <th scope="col">Merk</th>
           <th scope="col">Quantity</th>
+          <th scope="col">Category</th>
           <th scope="col">Status</th>
           <th scope="col">Action</th>
         </tr>
@@ -35,6 +36,7 @@
             <td><%= shoe.name %></td>
             <td><%= shoe.merk %></td>
             <td><%= shoe.qty %></td>
+            <td><%= shoe.category.name %></td>
             <td><%= shoe.available ? "In-Stock" : "Out-Stock" %></td>
             <td class="d-flex gap-2">
               <a href="/shoe/<%= shoe.id %>" class="btn btn-sm btn-light">

@@ -77,12 +77,26 @@
         </div>
 
         <div class="mb-3">
+          <label for="description" class="form-label"> Category </label>
+          <select name="categoryId" class="form-select" aria-label="Default select example" required>
+            <option value="">Open this for select category</option>
+            <% categories.forEach((category) => { %>
+              <% if (category.id === shoe.categoryId) { %>
+                <option selected value="<%= category.id %>"><%= category.name %></option>
+              <% } else { %>
+                <option value="<%= category.id %>"><%= category.name %></option>
+              <% } %>
+            <% }) %>
+          </select>
+        </div>
+
+        <div class="mb-3">
           <label for="description" class="form-label"> Description </label>
 
           <textarea name="description" class="form-control" id="description" rows="3" required><%= shoe.desc %></textarea>
         </div>
 
-        <button type="submit" class="btn btn-outline-primary mt-4">
+        <button type="submit" class="btn btn-outline-primary my-4">
           Update
         </button>
       </form>

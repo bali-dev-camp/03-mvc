@@ -3,7 +3,11 @@ const prisma = new PrismaClient();
 
 class ShoeController {
   static async listPage(req, res) {
-    const result = await prisma.shoe.findMany()
+    const result = await prisma.shoe.findMany({
+      include: {
+        category: true
+      }
+    })
     res.render("pages/shoe/list", {shoes: result})
   }
 
@@ -17,7 +21,8 @@ class ShoeController {
   }
 
   static async createPage(req, res) {
-    res.render("pages/shoe/add")
+    const categories = await prisma.category.findMany()
+    res.render("pages/shoe/add", {categories: categories})
   }
 
   static async store(req, res) {
@@ -30,6 +35,7 @@ class ShoeController {
         price: Number(req.body.price),
         img: req.file.filename,
         desc: req.body.description,
+        categoryId: Number(req.body.categoryId)
       }
     });
 
@@ -37,13 +43,14 @@ class ShoeController {
   }
 
   static async editPage(req, res) {
+    const categories = await prisma.category.findMany()
     const result = await prisma.shoe.findUnique({
       where: {
         id: Number(req.params.id)
       }
     })
 
-    res.render("pages/shoe/edit", { shoe: result });
+    res.render("pages/shoe/edit", { shoe: result, categories: categories });
   }
 
   static async update(req, res) {
@@ -59,6 +66,7 @@ class ShoeController {
         price: Number(req.body.price),
         img: req.file ? req.file.filename : undefined,
         desc: req.body.description,
+        categoryId: Number(req.body.categoryId)
       }
     });
 
