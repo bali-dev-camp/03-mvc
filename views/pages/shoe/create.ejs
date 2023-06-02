@@ -72,9 +72,18 @@
                 class="form-control"
                 id="img"
                 required
-                />  
-              </div>
+                />
             </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label"> Category </label>
+            <select name="category" class="form-select" aria-label="Default select example" required>
+              <option value="">Open this select category</option>
+              <% categories.map((category) => { %>
+              <option value="<%= category.id %>"><%= category.name %></option>
+              <% }) %>
+            </select>
           </div>
 
           <div class="mb-3">
