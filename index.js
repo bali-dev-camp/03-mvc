@@ -23,6 +23,7 @@ app.use(
     secret: "Buat ini jadi rahasia",
     resave: false,
     saveUninitialized: false,
+    cookie: { maxAge: 60000 },
   })
 );
 app.use(flash());
