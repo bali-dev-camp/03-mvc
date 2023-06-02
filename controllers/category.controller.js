@@ -18,9 +18,12 @@ class CategoryController {
           name: req.body.name,
         },
       });
+
       res.redirect("/category");
     } catch (err) {
-      req.flash("error", err.message);
+      if (err.code === "P2002") {
+        req.flash("error", "A category with this name is already in use");
+      }
       res.redirect("/category/create");
     }
   }
@@ -48,7 +51,9 @@ class CategoryController {
 
       res.redirect("/category");
     } catch (err) {
-      req.flash("error", err.message);
+      if (err.code === "P2002") {
+        req.flash("error", "A category with this name is already in use");
+      }
       res.redirect(`/category/${req.params.id}/edit`);
     }
   }
