@@ -11,13 +11,21 @@ class ShoeController {
     res.render("pages/shoe/list", {shoes: result})
   }
 
-  static async detailPage(req, res) {
-    const result = await prisma.shoe.findUnique({
-      where: {
-        id: Number(req.params.id)
+  static async detailPage(req, res, next) {
+    try {
+      const result = await prisma.shoe.findUnique({
+        where: {
+          id: Number(req.params.id)
+        }
+      })
+      if (result === null) {
+        return next();
       }
-    })
-    res.render("pages/shoe/detail", {shoe: result})
+      res.render("pages/shoe/detail", {shoe: result})
+    } catch (err) {
+      req.flash("error", err.message);
+      res.redirect("/shoe");
+    }
   }
 
   static async createPage(req, res) {

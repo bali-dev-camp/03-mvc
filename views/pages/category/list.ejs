@@ -8,6 +8,21 @@
     <%- include("../../components/navbar") %>
 
     <section id="home-content" class="container">
+      <% if (messages.error) { %>
+        <div
+          class="alert alert-danger alert-dismissible fade show mt-4"
+          role="alert"
+        >
+          <%= messages.error %>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+      <% } %>
+
       <div class="align-items-center d-flex justify-content-between mt-5 mb-4">
         <h3>Category List</h3>
         <a href="/category/create" class="btn btn-outline-primary"> Add </a>

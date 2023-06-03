@@ -23,4 +23,8 @@ router.get("/about", (req, res) => {
 router.use(shoeRouter);
 router.use(categoryRouter);
 
+router.use((req, res, next) => {
+  res.status(404).render("pages/404")
+});
+
 module.exports = router;
